@@ -1,0 +1,6 @@
+{
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": ["oeis_370092_conjecture_0"],
+    "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}
