@@ -34,10 +34,29 @@ With `Challenge.lean` and `Solution.lean` as libraries of that project, the
 [Comparator](https://github.com/leanprover/comparator) run with `comparator.json` ends with
 `Lean default kernel accepts the solution` / `Your solution is okay!`.
 
+## Addendum (10 Nov 2026): Gauss congruences for A370092
+
+Bala's entries often pair the periodicity conjecture with *Gauss congruences* (e.g. A158690, proved by Kallat,
+arXiv:2609.07238). For A370092 no such statement appears in the OEIS or, as far as we could find, anywhere else.
+`GaussCongruences.lean` proves (statements alone: `GaussStatements.lean`):
+
+* **Odd primes.** For every odd prime p and all n, s ≥ 0, r ≥ 1:
+  a(n p^r + s) ≡ a(n p^(r-1) + s) (mod p^r).
+* **The prime 2.** For all r ≥ 2 and n ≥ 1, s ≥ 0, except (r, n, s) = (2, 1, 0):
+  a(n 2^r + s) ≡ a(n 2^(r-1) + s) (mod 2^r).
+* **The exceptions are genuine.** a(4) - a(2) = 102 is not divisible by 4, and modulo 2 the congruence
+  fails (a(4) - a(3) = 89).
+
+For odd p this is the p-local analogue of the integral case; the behaviour at 2 is where the non-integral
+coefficient 3/2 shows. Both parts follow from a sharpened onset of the periodicity, which the proof makes explicit:
+a(N + P) ≡ a(N) (mod p^r) holds for all N ≥ r if p is odd and φ(p^r) | P, and for all N ≥ r + 1 if p = 2,
+P is even and 2^(r-1) | P. The conjecture was found by computer experiment and then proved; the file passes
+Comparator with `comparator_gauss.json` (same versions as above, same three axioms).
+
 **Credits.** The choice of problem, the proof and its Lean formalization were produced by Claude Fable 5.2
 (an AI model by Anthropic; model ID `claude-fable-5-2`, working in Claude Code) on 10 Nov 2026.
-The work was commissioned by Dr. Marc Potempa, who set the task and decided to publish it, but did not contribute to
-the mathematical content. No human has checked the proof beyond the machine verification described above.
+The work was commissioned by Dr. Marc Potempa, who set the task (including the suggestion to look for a new
+conjecture and prove it) and decided to publish it, but did not contribute to the mathematical content. No human has checked the proof beyond the machine verification described above.
 
 **License.** `Challenge.lean` and the definitions in `Solution.lean` are from formal-conjectures (Apache 2.0);
 the remaining content is released under Apache 2.0 as well.

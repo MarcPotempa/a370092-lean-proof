@@ -1,0 +1,16 @@
+{
+    "challenge_module": "GaussStatements",
+    "solution_module": "GaussCongruences",
+    "theorem_names": [
+        "oeis_370092_conjecture_0",
+        "A370092.gauss_odd",
+        "A370092.gauss_two",
+        "A370092.gauss_two_exception",
+        "A370092.gauss_two_mod_two_fails"
+    ],
+    "permitted_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+    ]
+}
