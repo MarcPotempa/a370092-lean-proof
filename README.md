@@ -14,7 +14,9 @@ with period dividing phi(k).
 **Priority.** The theorem itself is not new: it was proved by Payam Danesh, *Eventual periodicity of weighted Stirling
 transforms and two conjectures of Bala*, Cambridge Open Engage (2026), doi:10.33774/coe-2026-4d6jr (Theorem 5.3),
 using Kwong's period bounds for Stirling numbers. This repository adds an independent, self-contained proof,
-an explicit threshold (n ≥ k), and, to our knowledge, the first formal verification.
+an explicit threshold (n ≥ k), and an independent formal verification. It is not the first one: a Lean
+formalization of the same conjecture was published earlier at https://github.com/anshM123/OEIS-A370092
+(October 2026). We learned of it only after publishing this repository and have not examined it.
 
 **Idea of the proof.** The generating function is G(e^x - 1) with G(t) = (1+t)/(1 - t^2 - t^3/2), which is not an
 integral power series, so the usual Stirling-number argument fails at the prime 2. Instead we expand in differences
